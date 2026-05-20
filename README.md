@@ -129,10 +129,8 @@ $$
 $$
 \begin{aligned}
 \text{\textit{Scaled Scores}} &= \frac{Scores } {\sqrt{d_k}} \\
-A &= Softmax(Scaled Scores)
-\end{aligned}
-\\
-A=
+A &= Softmax(Scaled Scores) \\
+A &=
 \begin{bmatrix} 
 \alpha_{我,我} & \alpha_{我,爱} & \alpha_{我,你} \\
 \alpha_{爱,我} & \alpha_{爱,爱} & \alpha_{爱,你} \\
@@ -144,6 +142,7 @@ A=
 {-} & \alpha_{爱} & {-} \\
 {-} & \alpha_{你} & {-}
 \end{bmatrix}
+\end{aligned}
 $$
 
 
