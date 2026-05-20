@@ -116,9 +116,9 @@ x_{我,k} & x_{爱,k} & x_{你,k} \\
  \end{bmatrix} 
 & 
 \begin{bmatrix} 
-q_我\!\cdot\!k_我 & q_我\!\cdot\!k_爱 & q_我\!\cdot\!k_你 \\
-q_爱\!\cdot\!k_我 & q_爱\!\cdot\!k_爱 & q_爱\!\cdot\!k_你 \\
-q_你\!\cdot\!k_我 & q_你\!\cdot\!k_爱 & q_你\!\cdot\!k_你
+q_我\cdot k_我 & q_我\cdot k_爱 & q_我\cdot k_你 \\
+q_爱\cdot k_我 & q_爱\cdot k_爱 & q_爱\cdot k_你 \\
+q_你\cdot k_我 & q_你\cdot k_爱 & q_你\cdot k_你
 \end{bmatrix}
 \end{array}
 $$
@@ -131,11 +131,7 @@ $$
 \text{\textit{Scaled Scores}} &= \frac{Scores } {\sqrt{d_k}} \\
 A &= Softmax(Scaled Scores)
 \end{aligned}
-$$
-
-
-
-$$
+\\
 A=
 \begin{bmatrix} 
 \alpha_{我,我} & \alpha_{我,爱} & \alpha_{我,你} \\
