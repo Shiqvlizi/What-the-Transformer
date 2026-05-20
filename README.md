@@ -71,24 +71,19 @@ $$
 
 $$
 \begin{array}{cc}
-
 & 
-
 \begin{bmatrix} 
 | & | & | \\ 
 x_我 & x_爱 & x_你 \\ 
 | & | & | 
 \end{bmatrix} \\
 \\
-
 \begin{bmatrix}
  - & q_1 & - \\ 
  - & q_2 & - \\ 
  - & q_3 & - 
  \end{bmatrix} 
-
 & 
-
 \begin{bmatrix} 
 | & | & | \\ 
 x_{我, q} & x_{爱,q} & x_{你,q} \\ 
@@ -100,34 +95,26 @@ $$
 然后我们开始做查询, 对于每一个 token 的视角来看, 就是用自己的 `q` 去和所有 token 的 `k` 点乘, 包括自己, 生成一个权重表, 也就是 **注意力分数矩阵**
 
 $$
-
 Scores = Q^T K
-
 $$
 
 这个乘法是这样工作的, $q_x \cdot k_y$ 表示 x 对 y 的查询: 
 
 $$
-
 \begin{array}{cc}
-
-& 
-
+&
 \begin{bmatrix} 
 | & | & | \\ 
 x_{我,k} & x_{爱,k} & x_{你,k} \\ 
 | & | & | 
 \end{bmatrix} \\
 \\
-
 \begin{bmatrix}
  - & x_{我, q} & - \\ 
  - & x_{爱,q} & - \\ 
  - & x_{你,q} & - 
  \end{bmatrix} 
-
 & 
-
 \begin{bmatrix} 
 q_我\!\cdot\!k_我 & q_我\!\cdot\!k_爱 & q_我\!\cdot\!k_你 \\
 q_爱\!\cdot\!k_我 & q_爱\!\cdot\!k_爱 & q_爱\!\cdot\!k_你 \\
@@ -143,10 +130,7 @@ $$
 \begin{aligned}
 \text{\textit{Scaled Scores}} &= \frac{Scores } {\sqrt{d_k}} \\
 A &= Softmax(Scaled Scores)
-
-
 \end{aligned}
-
 $$
 
 
@@ -191,54 +175,38 @@ $$
 其实呢, 这个 $V$ 是一个矩阵, 不过我们暂时视为一个元素为向量的向量, 那么有
 
 $$
-
 z_我 = \alpha_{我} \cdot V
-
 $$
 这个 **z** 就是感知了上下文的新的 token 向量
 
 对于每一个 token 都做这样加权求和, 可以写成矩阵
 
 $$
-
 Z=VA^T
-
 $$
 
 
 $$
-
-
 \begin{array}{cc}
-
 & 
-
 \begin{bmatrix} 
 | & | & | \\ 
 \alpha_{我} & \alpha_{爱} & \alpha_{你} \\ 
 | & | & | 
 \end{bmatrix} \\
 \\
-
 \begin{bmatrix}
 | & | & | \\ 
 v_我 & v_爱 & v_你 \\ 
 | & | & | 
  \end{bmatrix} 
-
 & 
-
 \begin{bmatrix} 
 | & | & | \\ 
 z_我 & z_爱 & z_你 \\ 
 | & | & | 
 \end{bmatrix}
 \end{array}
-
-
-
-
-
 $$
 
 
@@ -247,36 +215,22 @@ $$
 
 
 $$
-
-
 \begin{array}{cc}
-
 & 
-
 \begin{bmatrix} 
 | & | & | \\ 
 \alpha_{我} & \alpha_{爱} & \alpha_{你} \\ 
 | & | & | 
 \end{bmatrix} \\
 \\
-
 \begin{bmatrix}
-
 v_我 & v_爱 & v_你 
-
- \end{bmatrix} 
-
+\end{bmatrix} 
 & 
-
 \begin{bmatrix} 
 z_我 & z_爱 & z_你 
 \end{bmatrix}
 \end{array}
-
-
-
-
-
 $$
 
 
@@ -287,70 +241,51 @@ $$
 这就能看出两种矩阵乘法的不同意义了
 
 $$
-
 \begin{array}{cc}
-
 & 
-
 \begin{bmatrix} 
 \ | & \ | &\  |\  \\ 
 \ | & \ | &\  |\  \\ 
 \ | & \ | &\  |\ 
 \end{bmatrix} \\
 \\
-
 \begin{bmatrix}
 \ | & \ | &\  |\  \\ 
 \ | & \ | &\  |\  \\ 
 \ | & \ | &\  |\ 
  \end{bmatrix} 
-
 & 
-
 \begin{bmatrix} 
 \ | & \ | &\  |\  \\ 
 \ | & \ | &\  |\  \\ 
 \ | & \ | &\  |\ 
 \end{bmatrix}
 \end{array}
-
 $$
 
 和
 
 $$
-
-
 \begin{array}{cc}
-
-& 
-
+&
 \begin{bmatrix} 
 \ | & \ | &\  |\  \\ 
 \ | & \ | &\  |\  \\ 
 \ | & \ | &\  |\ 
 \end{bmatrix} \\
 \\
-
 \begin{bmatrix}
 - & - & - \\ 
 - & - & - \\ 
 - & - & - 
- \end{bmatrix} 
-
-& 
-
+\end{bmatrix} 
+&
 \begin{bmatrix} 
 \ \cdot & \ \cdot & \ \cdot \  \\ 
 \ \cdot & \ \cdot & \ \cdot \  \\ 
 \ \cdot & \ \cdot & \ \cdot \ 
 \end{bmatrix}
 \end{array}
-
-
-
-
-
 $$
 
 
@@ -374,9 +309,7 @@ $$X_{norm1}=LayerNorm(X+Z)$$
 假设某个 token 的向量为 $\mathbf{x} = (x_1,\ x_2,\ \dots,\ x_d)$
 
 $$
-
 \mu = \frac{1}{d}\sum_{i=1}^{d}x_i \qquad \sigma^2= \frac{1}{d}\sum_{i=1}^{d}(x_i-\mu)^2 \qquad \hat{x_i}=\frac{x_i-\mu}{\sqrt{\sigma^2+\epsilon}}
-
 $$
 
 这里的 $\epsilon$ 是一个很小的数, 防止除以 $0$
@@ -386,9 +319,7 @@ $$
 对吧? 神经网络的输入是一个向量, 虽然说也可以写成矩阵形式, 不过我们这里就用 **每一个  token 向量** 了
 
 $$
-
 F=FFN(x)=W_2 \cdot ReLU(W_1 \cdot x + b_1)+ b_2
-
 $$
 
 之后再进行一次 **残差链接** + **归一化** 
