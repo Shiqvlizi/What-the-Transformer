@@ -79,9 +79,9 @@ x_我 & x_爱 & x_你 \\
 \end{bmatrix} \\
 \\
 \begin{bmatrix}
- - & q_1 & - \\ 
- - & q_2 & - \\ 
- - & q_3 & - 
+{-} & q_1 & {-} \\ 
+{-} & q_2 & {-} \\ 
+{-} & q_3 & {-} 
 \end{bmatrix} 
 & 
 \begin{bmatrix} 
@@ -110,9 +110,9 @@ x_{我,k} & x_{爱,k} & x_{你,k} \\
 \end{bmatrix} \\
 \\
 \begin{bmatrix}
-- & x_{我, q} & - \\ 
-- & x_{爱,q} & - \\ 
-- & x_{你,q} & - 
+{-} & x_{我,q} & {-} \\ 
+{-} & x_{爱,q} & {-} \\ 
+{-} & x_{你,q} & {-} 
  \end{bmatrix} 
 & 
 \begin{bmatrix} 
@@ -144,9 +144,9 @@ A=
 \end{bmatrix}
 =
 \begin{bmatrix} 
-- & \alpha_{我} & - \\
-- & \alpha_{爱} & - \\
-- & \alpha_{你} & -
+{-} & \alpha_{我} & {-} \\
+{-} & \alpha_{爱} & {-} \\
+{-} & \alpha_{你} & {-}
 \end{bmatrix}
 $$
 
@@ -275,9 +275,9 @@ $$
 \end{bmatrix} \\
 \\
 \begin{bmatrix}
-- & - & - \\ 
-- & - & - \\ 
-- & - & - 
+{-} & {-} & {-} \\ 
+{-} & {-} & {-} \\ 
+{-} & {-} & {-} 
 \end{bmatrix} 
 &
 \begin{bmatrix} 
